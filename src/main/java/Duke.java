@@ -1,6 +1,8 @@
 import java.util.Scanner;
 public class Duke {
     public static void main(String[] args) {
+        String[] list = new String[100];
+        int count = 0;
 
             System.out.println("____________________________________________________________\n  " +
                     " Hello! I'm Duke\n" +
@@ -14,9 +16,21 @@ public class Duke {
                     System.out.println(" Bye. Hope to see you again soon!\n" +
                             "____________________________________________________________\n");
                     break;
-                } else {
-                    System.out.println("____________________________________________________________\n  " + user_input +
+                }
+                if (user_input.equals("list")){
+                    System.out.println("____________________________________________________________\n  ");
+                    for (int i=0; i < count; i++){
+                        System.out.println(i+1 + ". " + list[i]+ "\n");
+                    }
+                    System.out.println("____________________________________________________________\n  ");
+                }
+
+
+                else {
+                    System.out.println("____________________________________________________________\n  " + "added: " + user_input +
                             "\n____________________________________________________________\n");
+                    list[count] = user_input;
+                    count++;
                 }
             }
     }
