@@ -1,4 +1,4 @@
-public class Task {
+public class Task extends TaskArray{
     protected String description;
     protected boolean isDone;
 
