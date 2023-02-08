@@ -13,14 +13,13 @@ public class Parser {
     }
 
     public void processInput(){
-
         switch(this.command){
             case ("bye"):
                 UI.bye();
                 break;
             case ("todo"):
-                TaskArray.createToDo(commandParameters);
-                break;
+                    TaskArray.createToDo(commandParameters);
+                    break;
             case ("deadline"):
                 TaskArray.createDeadline(commandParameters);
                 break;

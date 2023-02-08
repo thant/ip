@@ -9,17 +9,29 @@ public class TaskArray {
     }
 
     public static void createToDo(String userInput){
-        storedTasks[count] = new Todo(userInput);
+        if (userInput == null){
+            System.out.println(UI.LINE + "☹ OOPS!!! The description of a todo cannot be empty.\n" + UI.LINE);
+        }else {
+            storedTasks[count] = new Todo(userInput);
+        }
     }
     public static void createDeadline(String userInput){
-        String[] parameters = userInput.split("by",2);
-        storedTasks[count] = new Deadline(parameters[0],parameters[1]);
+        try {
+            String[] parameters = userInput.split("by", 2);
+            storedTasks[count] = new Deadline(parameters[0], parameters[1]);
+        }catch (NullPointerException | ArrayIndexOutOfBoundsException e){
+            System.out.println(UI.LINE + "Please follow the format:[deadline <Task Name> by <Deadline Date>]\n" + UI.LINE);
+        }
     }
 
     public static void createEvent(String userInput){
-        String[] temp = userInput.split(" from ", 2);
-        String[] parameters = temp[1].split(" to ", 2);
-        storedTasks[count] = new Event(temp[0],parameters[0],parameters[1]);
+        try {
+            String[] temp = userInput.split(" from ", 2);
+            String[] parameters = temp[1].split(" to ", 2);
+            storedTasks[count] = new Event(temp[0], parameters[0], parameters[1]);
+        }catch (NullPointerException | ArrayIndexOutOfBoundsException e){
+            System.out.println(UI.LINE + "Please follow the format:[event <Task Name> from <Start Time> to <End Time>]\n" + UI.LINE);
+        }
     }
 
     public static void print(){
