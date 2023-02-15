@@ -24,6 +24,28 @@ public class TaskArray {
         }
     }
 
+    public static void delete(String userInput) {
+        String index = userInput.trim();
+        int indexInt = Integer.parseInt(index) - 1;
+        try {
+            count--;
+            System.out.println(UI.LINE + "Noted. I've removed this task:\n" + storedTasks[indexInt].toString());
+            System.out.println("Now you have " + count + " tasks in the list.\n" + UI.LINE);
+            Task[] temp = new Task[100];
+
+            for (int i = 0, k = 0; i < storedTasks.length; i++) {
+                if (i == indexInt) {
+                    continue;
+                }
+
+                temp[k++] = storedTasks[i];
+            }
+            storedTasks = temp;
+        }catch (NullPointerException e) {
+            System.out.println(UI.LINE + "Task doesn't exist!\n" + UI.LINE);
+        }
+    }
+
     public static void createEvent(String userInput){
         try {
             String[] temp = userInput.split(" from ", 2);

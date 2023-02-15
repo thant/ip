@@ -35,6 +35,9 @@ public class Parser {
             case ("unmark"):
                 TaskArray.unmark(commandParameters);
                 break;
+            case ("delete"):
+                TaskArray.delete(commandParameters);
+                break;
             default:
                 System.out.println(UI.LINE + "☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n" + UI.LINE);
 
