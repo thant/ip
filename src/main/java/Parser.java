@@ -19,21 +19,30 @@ public class Parser {
                 break;
             case ("todo"):
                     TaskArray.createToDo(commandParameters);
+                    FileSaver.updateFile();
                     break;
             case ("deadline"):
                 TaskArray.createDeadline(commandParameters);
+                FileSaver.updateFile();
                 break;
             case ("event"):
                 TaskArray.createEvent(commandParameters);
+                FileSaver.updateFile();
                 break;
             case ("list"):
                 TaskArray.print();
                 break;
             case("mark"):
                 TaskArray.mark(commandParameters);
+                FileSaver.updateFile();
                 break;
             case ("unmark"):
                 TaskArray.unmark(commandParameters);
+                FileSaver.updateFile();
+                break;
+            case ("delete"):
+                TaskArray.delete(commandParameters);
+                FileSaver.updateFile();
                 break;
             case ("delete"):
                 TaskArray.delete(commandParameters);

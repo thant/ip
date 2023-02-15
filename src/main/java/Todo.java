@@ -18,4 +18,7 @@ public class Todo extends Task {
                 "\n     Now you have " + TaskArray.count + " tasks in the list.\n" +
                 UI.LINE);
     }
+    public String toFile() {
+        return this.isDone + " | " +"t"+ this.description + "\n";
+    }
 }

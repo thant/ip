@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class TaskArray {
 
     static Task[] storedTasks = new Task[100];
@@ -24,6 +26,9 @@ public class TaskArray {
         }
     }
 
+    public static int getCount(){
+        return count;
+    }
     public static void delete(String userInput) {
         String index = userInput.trim();
         int indexInt = Integer.parseInt(index) - 1;
