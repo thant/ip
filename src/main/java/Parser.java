@@ -44,9 +44,6 @@ public class Parser {
                 TaskArray.delete(commandParameters);
                 FileSaver.updateFile();
                 break;
-            case ("delete"):
-                TaskArray.delete(commandParameters);
-                break;
             default:
                 System.out.println(UI.LINE + "☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n" + UI.LINE);
 
