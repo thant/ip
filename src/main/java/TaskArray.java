@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class TaskArray {
 
     static Task[] storedTasks = new Task[100];
@@ -22,6 +24,10 @@ public class TaskArray {
         }catch (NullPointerException | ArrayIndexOutOfBoundsException e){
             System.out.println(UI.LINE + "Please follow the format:[deadline <Task Name> by <Deadline Date>]\n" + UI.LINE);
         }
+    }
+
+    public static int getCount(){
+        return count;
     }
 
     public static void delete(String userInput) {

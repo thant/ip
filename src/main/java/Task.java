@@ -22,4 +22,8 @@ public class Task extends TaskArray{
     public String toString() {
         return "[" + this.getStatusIcon() + "] " + this.description;
     }
+
+    public String toFile() {
+        return this.isDone + " | " + this.description + "\n";
+    }
 }

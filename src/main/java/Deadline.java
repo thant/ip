@@ -20,4 +20,8 @@ public class Deadline extends Task {
                 "\n     Now you have " + TaskArray.count + " tasks in the list.\n" +
                 UI.LINE);
     }
+
+    public String toFile() {
+        return this.isDone + " | " +"d"+ this.description + " by " + this.by + "\n";
+    }
 }
