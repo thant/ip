@@ -70,16 +70,52 @@ public class TaskArray {
     }
 
     public static void mark(String userInput){
-        String index = userInput.trim();
-        int indexInt = Integer.parseInt(index) - 1;
-        storedTasks[indexInt].markAsDone();
-        System.out.println(UI.LINE + "     Nice! I've marked this task as done:\n [X] " + storedTasks[indexInt].description + "\n "+ UI.LINE);
+        try {
+            String index = userInput.trim();
+            int indexInt = Integer.parseInt(index) - 1;
+            storedTasks[indexInt].markAsDone();
+            System.out.println(UI.LINE + "     Nice! I've marked this task as done:\n [X] " + storedTasks[indexInt].description + "\n " + UI.LINE);
+        }catch (NullPointerException e){
+            System.out.println("No such task found!");
+        }catch (NumberFormatException | ArrayIndexOutOfBoundsException e){
+            System.out.println("Please input a number ranging from 1 to 100!");
+        }
     }
 
     public static void unmark(String userInput){
-        String index = userInput.trim();
-        int indexInt = Integer.parseInt(index) - 1;
-        storedTasks[indexInt].unmarkTask();
-        System.out.println(UI.LINE + "     OK, I've marked this task as not done yet:\n [ ] " + storedTasks[indexInt].description + "\n " + UI.LINE);
+        try {
+            String index = userInput.trim();
+            int indexInt = Integer.parseInt(index) - 1;
+            storedTasks[indexInt].unmarkTask();
+            System.out.println(UI.LINE + "     OK, I've marked this task as not done yet:\n [ ] " + storedTasks[indexInt].description + "\n " + UI.LINE);
+        }catch (NullPointerException e){
+            System.out.println("No such task found!");
+        }catch (NumberFormatException | ArrayIndexOutOfBoundsException e){
+            System.out.println("Please input a number ranging from 1 to 100!");
+        }
+    }
+
+    public static void find(String userInput) {
+        Task[] outputHolder = new Task[100];
+        int tempCount = 0;
+        for (int i = 0; i < count; i++) {
+            if (storedTasks[i].description.contains(userInput)) {
+                outputHolder[tempCount] = storedTasks[i];
+                tempCount++;
+            }
+        }
+        System.out.println(UI.LINE);
+        if (tempCount > 0) {
+            System.out.println("Here are the matching tasks in your list:\n");
+            for (int i = 0; i < tempCount; i++) {
+                System.out.println(i + 1 + "." + outputHolder[i].toString());
+            }
+        }
+        else{
+            System.out.println("No tasks in your list that match!\n");
+        }
+        System.out.println(UI.LINE);
+
+
     }
 }
