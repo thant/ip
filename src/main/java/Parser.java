@@ -1,5 +1,3 @@
-import java.util.Locale;
-
 public class Parser {
 
     protected String command;
@@ -19,30 +17,33 @@ public class Parser {
                 break;
             case ("todo"):
                     TaskArray.createToDo(commandParameters);
-                    FileSaver.updateFile();
+                    Storage.updateFile();
                     break;
             case ("deadline"):
                 TaskArray.createDeadline(commandParameters);
-                FileSaver.updateFile();
+                Storage.updateFile();
                 break;
             case ("event"):
                 TaskArray.createEvent(commandParameters);
-                FileSaver.updateFile();
+                Storage.updateFile();
                 break;
             case ("list"):
                 TaskArray.print();
                 break;
             case("mark"):
                 TaskArray.mark(commandParameters);
-                FileSaver.updateFile();
+                Storage.updateFile();
                 break;
             case ("unmark"):
                 TaskArray.unmark(commandParameters);
-                FileSaver.updateFile();
+                Storage.updateFile();
                 break;
             case ("delete"):
                 TaskArray.delete(commandParameters);
-                FileSaver.updateFile();
+                Storage.updateFile();
+                break;
+            case ("find"):
+                TaskArray.find(commandParameters);
                 break;
             default:
                 System.out.println(UI.LINE + "☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n" + UI.LINE);

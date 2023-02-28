@@ -2,12 +2,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
-public class FileSaver {
+public class Storage {
 
     protected static String filePath;
 
-    public FileSaver(String filePath){
-        FileSaver.filePath = filePath;
+    public Storage(String filePath){
+        Storage.filePath = filePath;
     }
 
     public void load() {
