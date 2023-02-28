@@ -1,8 +1,5 @@
-/**
- * Represents an array of <code>Task</code> objects and serves as the database for Duke.
- * Contains a <code>storedTasks</code> array of 100 <code>Task</code> objects.
- * Initializes a <code>count</code> variable for index navigation of the aforementioned array.
- */
+import java.io.File;
+
 public class TaskArray {
 
     static Task[] storedTasks = new Task[100];
@@ -13,12 +10,6 @@ public class TaskArray {
     public TaskArray(){
     }
 
-    /**
-     *Creates a <code>Todo</code> to store within the <code>storedTasks</code> array.
-     *If the input contains no parameters for the <code>Todo</code> to be created,
-     * outputs a messagee.
-     * @param userInput Parameters which the user has entered into Duke.
-     */
     public static void createToDo(String userInput){
         if (userInput == null){
             System.out.println(UI.LINE + "☹ OOPS!!! The description of a todo cannot be empty.\n" + UI.LINE);
@@ -26,12 +17,6 @@ public class TaskArray {
             storedTasks[count] = new Todo(userInput);
         }
     }
-
-    /**
-     *Creates a <code>Deadline</code> to store within the <code>storedTasks</code> array.
-     *If the input does not follow a stipulated format, displays an error message.
-     * @param userInput Parameters which the user has entered into Duke.
-     */
     public static void createDeadline(String userInput){
         try {
             String[] parameters = userInput.split("by", 2);
@@ -44,11 +29,6 @@ public class TaskArray {
     public static int getCount(){
         return count;
     }
-
-    /**
-     *Navigates through the <code>storedTasks</code> array to delete a <code>Task</code> at a given index.
-     * @param userInput Index from which task to be deleted.
-     */
     public static void delete(String userInput) {
         String index = userInput.trim();
         int indexInt = Integer.parseInt(index) - 1;
@@ -70,11 +50,7 @@ public class TaskArray {
             System.out.println(UI.LINE + "Task doesn't exist!\n" + UI.LINE);
         }
     }
-    /**
-     *Creates an <code>Event</code> to store within the <code>storedTasks</code> array.
-     *If the input does not follow a stipulated format, displays an error message.
-     * @param userInput Parameters which the user has entered into Duke.
-     */
+
     public static void createEvent(String userInput){
         try {
             String[] temp = userInput.split(" from ", 2);
@@ -84,9 +60,7 @@ public class TaskArray {
             System.out.println(UI.LINE + "Please follow the format:[event <Task Name> from <Start Time> to <End Time>]\n" + UI.LINE);
         }
     }
-    /**
-     *Navigates through the <code>storedTasks</code> array to print out each <code>Task</code> in an appropriate format.
-     */
+
     public static void print(){
         System.out.println(UI.LINE);
         for (int i = 0; i < count; i++) {
@@ -95,10 +69,6 @@ public class TaskArray {
         System.out.println(UI.LINE);
     }
 
-    /**
-     *Navigates through the <code>storedTasks</code> array to indicate a <code>Task</code> has been completed.
-     * @param userInput Index of the task in which user wishes to mark.
-     */
     public static void mark(String userInput){
         try {
             String index = userInput.trim();
@@ -112,10 +82,6 @@ public class TaskArray {
         }
     }
 
-    /**
-     *Navigates through the <code>storedTasks</code> array to indicate a <code>Task</code> has not been completed.
-     *@param userInput Index of the task in which user wishes to unmark.
-     */
     public static void unmark(String userInput){
         try {
             String index = userInput.trim();
@@ -129,11 +95,6 @@ public class TaskArray {
         }
     }
 
-    /**
-     *Navigates through the <code>storedTasks</code> array to locate all <code>Task</code> objects that contain the given input.
-     * These are then printed out in an appropriate format.
-     *@param userInput Parameters that user wishes to locate tasks for in the <code>storedTasks</code> array.
-     */
     public static void find(String userInput) {
         Task[] outputHolder = new Task[100];
         int tempCount = 0;
