@@ -4,8 +4,8 @@ public class Duke {
     public static boolean continueRunning = true;
 
     public Duke(String filePath){
-        FileSaver fileSaver = new FileSaver(filePath);
-        fileSaver.load();
+        Storage storage = new Storage(filePath);
+        storage.load();
     }
     public static void main(String[] args) {
         new Duke ("./data/taskList.txt").run();
