@@ -4,7 +4,7 @@ This is a basic user guide for usage of the task tracker Duke.
 
 ## Installation
 
-Prerequisites: JDK 11, update Intellij to the most recent version.
+Prerequisites: JDK 11,
 
 1. Download the jar file for Duke under 'Releases'
 2. Extract it to an empty folder
